@@ -6,12 +6,12 @@
 
 npm:
 ```
-npm install --save component-factory
+npm install --save @grebaldi/component-factory
 ```
 
 yarn:
 ```
-yarn add component-factory
+yarn add @grebaldi/component-factory
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ yarn add component-factory
 ```
 
 ```js
-import create from 'component-factory';
+import create from '@grebaldi/component-factory';
 
 create((update, reconcile) => {
 	const button = document.getElementById('#my-button');

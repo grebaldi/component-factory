@@ -1,5 +1,5 @@
 {
-  "name": "component-factory",
+  "name": "@grebaldi/component-factory",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
