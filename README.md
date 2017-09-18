@@ -45,4 +45,4 @@ create((update, reconcile) => {
 
 ## License
 
-MIT
+MIT, see [LICENSE.md](./LICENSE.md)
