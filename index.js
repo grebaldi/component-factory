@@ -2,30 +2,32 @@
 // Create a universal, stateful component
 //
 export default function factory (fn) {
-	let state, onUpdate;
+	return (...args) => {
+		let state, onUpdate;
 
-	//
-	// The update function
-	//
-	const update = function update (reducer) {
-		if (!state || !onUpdate) {
-			return;
-		}
+		//
+		// The update function
+		//
+		const update = function update (reducer) {
+			if (!state || !onUpdate) {
+				return;
+			}
 
-		const newState = reducer(state);
+			const newState = reducer(state);
 
-		onUpdate(state, newState);
+			onUpdate(state, newState);
 
-		state = newState;
+			state = newState;
+		};
+
+		//
+		// The reconcile function
+		//
+		const reconcile = function reconcile (initialState, reconciler) {
+			state = initialState;
+			onUpdate = reconciler;
+		};
+
+		return fn(update, reconcile)(...args);
 	};
-
-	//
-	// The reconcile function
-	//
-	const reconcile = function reconcile (initialState, reconciler) {
-		state = initialState;
-		onUpdate = reconciler;
-	};
-
-	return fn(update, reconcile);
 };
