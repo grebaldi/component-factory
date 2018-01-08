@@ -24,7 +24,7 @@ yarn add @grebaldi/component-factory
 ```js
 import create from '@grebaldi/component-factory';
 
-create((update, reconcile) => {
+create((update, reconcile) => () => {
 	const button = document.getElementById('#my-button');
 	const label = document.getElementById('#my-label');
 
